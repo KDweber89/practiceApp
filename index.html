@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html data-ng-app = "customersApp">
+<head>
+	<title>Usin AngularJS Directives and Data Bindings</title>
+</head>
+<body>
+
+	<div ng-controller="CustomersController">
+		Search: <input type = "text" ng-model="searchText" />
+		{{ searchText }}
+		<br />
+		<h3> Customers </h3>
+		<table>
+			<tr ng-repeat="cust in customers | filter:searchText">
+					<td>{{ cust.name }}</td>
+					<td>{{ cust.city }}</td>
+					<td>{{ cust.total | currency}} </td>
+				</tr>
+		</table>
+	</div>
+
+	
+
+	<script src= "angular.js"></script>
+	<script>
+	var app = angular.module('customersApp', []);
+	app.controller("CustomersController",  function($scope){
+		$scope.customers = [
+				{name: 'Dave Jones', city: 'pheonix'},
+				{name: 'Dave astrJones', city: 'New york'},
+				{name: 'Jones suman', city: 'pheonix'},
+				{name: 'Naresh babu', city: 'Hyderabad'}
+			];
+		});
+	
+	</script>
+
+
+
+
+</body>.
+</html>
+
+
+
